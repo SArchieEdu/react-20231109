@@ -11,6 +11,7 @@ export const mocks = [
       "Хорошо работают с iPhone.",
     ],
     codecs: ["SBC", "AAC"],
+    price: 10,
   },
   {
     name: "Sony WF-1000XM3",
@@ -20,6 +21,7 @@ export const mocks = [
     brand: "Sony",
     reviews: ["Отличный звук.", "Удобное управление.", "Хорошая автономность."],
     codecs: ["LDAC", "AAC", "SBC"],
+    price: 10,
   },
   {
     name: "Sennheiser Momentum 3",
@@ -33,6 +35,7 @@ export const mocks = [
       "Стильный дизайн.",
     ],
     codecs: ["aptX", "AAC", "SBC"],
+    price: 10,
   },
   {
     name: "Bose QuietComfort 35 II",
@@ -46,6 +49,7 @@ export const mocks = [
       "Удобные амбушюры.",
     ],
     codecs: ["AAC", "SBC"],
+    price: 10,
   },
   {
     name: "Marshall Major IV",
@@ -55,6 +59,7 @@ export const mocks = [
     brand: "Marshall",
     reviews: ["Хорошее звучание.", "Долго держат заряд.", "Легкие и удобные."],
     codecs: ["aptX", "aptX HD", "AAC", "SBC"],
+    price: 10,
   },
   {
     name: "Beats Studio 3",
@@ -64,6 +69,7 @@ export const mocks = [
     brand: "Beats",
     reviews: ["Отличные басы.", "Хороший звук в целом.", "Стильные и удобные."],
     codecs: ["AAC", "SBC"],
+    price: 10,
   },
   {
     name: "Anker Soundcore Life Q30",
@@ -77,6 +83,7 @@ export const mocks = [
       "Достойный звук за свою цену.",
     ],
     codecs: ["aptX", "AAC", "SBC"],
+    price: 10,
   },
   {
     name: "Panasonic RZ-S300WGE",
@@ -90,6 +97,7 @@ export const mocks = [
       "Долго держат заряд.",
     ],
     codecs: ["AAC", "SBC"],
+    price: 10,
   },
   {
     name: "Shure AONIC 5",
@@ -103,5 +111,6 @@ export const mocks = [
       "Комфортные и легкие.",
     ],
     codecs: ["aptX LL", "LDAC", "AAC", "SBC"],
+    price: 10,
   },
 ];
