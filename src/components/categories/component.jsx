@@ -1,5 +1,7 @@
 import { Category } from "../category/component";
 
+import styles from "./styles.module.css";
+
 export const Categories = ({ categories, onCategorySelect }) => {
   return (
     <div>

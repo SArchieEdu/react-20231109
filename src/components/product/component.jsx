@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { BuyButton } from "../buy-button/component";
 
+import styles from "./styles.module.css";
+
 export const Product = ({ product }) => {
   const [isPromoUsed, setIsPromoUsed] = useState(false);
   if (!product) {
@@ -15,7 +17,11 @@ export const Product = ({ product }) => {
         toggle promo: {isPromoUsed ? "Yes" : "No"}
       </button>
       <span>{name}</span> - <span>{type}</span>
-      <BuyButton price={price * (isPromoUsed ? 0.7 : 1)} />
+      <BuyButton
+        price={price * (isPromoUsed ? 0.7 : 1)}
+        className={styles.buyButton}
+        // type="secondary"
+      />
     </div>
   );
 };

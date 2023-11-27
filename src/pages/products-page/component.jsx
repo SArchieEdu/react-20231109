@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Categories } from "../../components/categories/component";
 import { Products } from "../../components/products/component";
 import { ReviewForm } from "../../components/review-form/component";
+import { Timer } from "../../components/timer/component";
 
 const EMPTY_CATEGORY = "ALL";
 
@@ -30,6 +31,7 @@ export const ProductsPage = ({ products }) => {
       {selectedCategory || "Select category"}
       <Products products={filteredProducts} />
       <ReviewForm />
+      <Timer />
     </div>
   );
 };

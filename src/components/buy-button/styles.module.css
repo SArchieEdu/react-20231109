@@ -1,0 +1,17 @@
+.root {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 4px 2px;
+}
+
+.action {
+    font-weight: 700;
+}
+
+.primary {
+    background-color: blue;
+}
+
+.secondary {
+    background-color: grey;
+}
