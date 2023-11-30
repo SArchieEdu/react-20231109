@@ -3,6 +3,7 @@ import { Categories } from "../../components/categories/component";
 import { Products } from "../../components/products/component";
 import { ReviewForm } from "../../components/review-form/component";
 import { Timer } from "../../components/timer/component";
+import { OrderFormGroup } from "../../components/order-form-group/component";
 
 const EMPTY_CATEGORY = "ALL";
 
@@ -32,6 +33,7 @@ export const ProductsPage = ({ products }) => {
       <Products products={filteredProducts} />
       <ReviewForm />
       <Timer />
+      <OrderFormGroup />
     </div>
   );
 };
