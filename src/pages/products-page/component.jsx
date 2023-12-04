@@ -1,39 +1,25 @@
 import { useState } from "react";
 import { Categories } from "../../components/categories/component";
 import { Products } from "../../components/products/component";
-import { ReviewForm } from "../../components/review-form/component";
-import { Timer } from "../../components/timer/component";
-import { OrderFormGroup } from "../../components/order-form-group/component";
+import { useSelector } from "react-redux";
+import { selectHeadphoneIdsFilteredByCodecId } from "../../redux/features/entities/headphone/selectors";
 
-const EMPTY_CATEGORY = "ALL";
-
-export const ProductsPage = ({ products }) => {
-  const categories = Array.from(
-    new Set(products.map(({ type }) => type))
-  ).concat(EMPTY_CATEGORY);
-
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-
-  const filteredProducts = products.filter(
-    ({ type }) =>
-      type === selectedCategory || selectedCategory === EMPTY_CATEGORY
+export const ProductsPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState();
+  const headphoneIds = useSelector((state) =>
+    selectHeadphoneIdsFilteredByCodecId(state, selectedCategory)
   );
 
-  if (!products.length) {
-    return null;
-  }
+  console.log(headphoneIds);
 
   return (
     <div>
-      <Categories
-        categories={categories}
-        onCategorySelect={setSelectedCategory}
-      />
+      <Categories onCategorySelect={setSelectedCategory} />
       {selectedCategory || "Select category"}
-      <Products products={filteredProducts} />
-      <ReviewForm />
+      <Products productIds={headphoneIds} />
+      {/* <ReviewForm />
       <Timer />
-      <OrderFormGroup />
+      <OrderFormGroup /> */}
     </div>
   );
 };

@@ -2,9 +2,13 @@ import { useState } from "react";
 import { BuyButton } from "../buy-button/component";
 
 import styles from "./styles.module.css";
+import { useSelector } from "react-redux";
+import { selectHeadphoneById } from "../../redux/features/entities/headphone/selectors";
 
-export const Product = ({ product }) => {
+export const Product = ({ id }) => {
+  const product = useSelector((state) => selectHeadphoneById(state, id));
   const [isPromoUsed, setIsPromoUsed] = useState(false);
+
   if (!product) {
     return null;
   }

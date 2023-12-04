@@ -1,3 +1,12 @@
-export const Category = ({ title, onClick }) => {
-  return <button onClick={onClick}>{title}</button>;
+import { useSelector } from "react-redux";
+import { selectCodecById } from "../../redux/features/entities/codec/selectors";
+
+export const Category = ({ id, onClick }) => {
+  const codec = useSelector((state) => selectCodecById(state, id));
+
+  if (!codec) {
+    return null;
+  }
+
+  return <button onClick={onClick}>{codec.type}</button>;
 };
