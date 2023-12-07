@@ -3,7 +3,7 @@ import { BuyButton } from "../buy-button/component";
 
 import styles from "./styles.module.css";
 import { useSelector } from "react-redux";
-import { selectHeadphoneById } from "../../redux/features/entities/headphone/selectors";
+import { selectHeadphoneById } from "../../redux/entities/headphone/selectors";
 
 export const Product = ({ id }) => {
   const product = useSelector((state) => selectHeadphoneById(state, id));
@@ -22,9 +22,9 @@ export const Product = ({ id }) => {
       </button>
       <span>{name}</span> - <span>{type}</span>
       <BuyButton
+        productId={id}
         price={price * (isPromoUsed ? 0.7 : 1)}
         className={styles.buyButton}
-        // type="secondary"
       />
     </div>
   );

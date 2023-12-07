@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { normalizedCodecs } from "../../../../constants/mock-norm";
+import { normalizedCodecs } from "../../../constants/mock-norm";
 
 export const codecSlice = createSlice({
   name: "codec",
