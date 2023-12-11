@@ -1,8 +1,13 @@
-import { useSelector } from "react-redux";
-import { selectCodecById } from "../../redux/entities/codec/selectors";
-
-export const Category = ({ id, onClick }) => {
-  const codec = useSelector((state) => selectCodecById(state, id));
+export const Category = ({ codec, onClick }) => {
+  // const { data, isFetching } = useGetCodecsQuery(undefined, {
+  //   selectFromResult: (result) => {
+  //     return {
+  //       ...result,
+  //       data: result?.data?.find(({ id: codecId }) => codecId === id),
+  //     };
+  //   },
+  // });
+  // console.log(data);
 
   if (!codec) {
     return null;

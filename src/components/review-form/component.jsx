@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { useState } from "react";
+import { useCreateReviewMutation } from "../../redux/services/api";
 
 const DEFAULT_FORM_VALUE = {
   name: "",
@@ -25,8 +26,9 @@ const reducer = (state, action) => {
   }
 };
 
-export const ReviewForm = () => {
+export const ReviewForm = ({ productId }) => {
   const [formValue, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
+  const [createReview, result] = useCreateReviewMutation();
 
   console.log(formValue);
   return (
@@ -64,6 +66,9 @@ export const ReviewForm = () => {
           }
         />
       </div>
+      <button onClick={() => createReview({ productId, newReview: formValue })}>
+        Save
+      </button>
     </div>
   );
 };

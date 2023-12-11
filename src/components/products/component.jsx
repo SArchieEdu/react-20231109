@@ -1,10 +1,10 @@
 import { Product } from "../product/component";
 
-export const Products = ({ productIds }) => {
+export const Products = ({ products }) => {
   return (
     <div>
-      {productIds.map((productId) => (
-        <Product id={productId} />
+      {products.map((product) => (
+        <Product product={product} />
       ))}
     </div>
   );

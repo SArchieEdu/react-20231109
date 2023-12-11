@@ -1,16 +1,17 @@
-import { useSelector } from "react-redux";
 import { Category } from "../category/component";
-
-import styles from "./styles.module.css";
-import { selectCodecIds } from "../../redux/entities/codec/selectors";
+import { useGetCodecsQuery } from "../../redux/services/api";
 
 export const Categories = ({ onCategorySelect }) => {
-  const codecIds = useSelector(selectCodecIds);
+  const { data, isFetching } = useGetCodecsQuery();
+
+  if (isFetching) {
+    return "Loading";
+  }
 
   return (
     <div>
-      {codecIds.map((codecId) => (
-        <Category id={codecId} onClick={() => onCategorySelect(codecId)} />
+      {data.map((codec) => (
+        <Category codec={codec} onClick={() => onCategorySelect(codec.id)} />
       ))}
     </div>
   );

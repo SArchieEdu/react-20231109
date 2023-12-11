@@ -4,16 +4,16 @@ import { BuyButton } from "../buy-button/component";
 import styles from "./styles.module.css";
 import { useSelector } from "react-redux";
 import { selectHeadphoneById } from "../../redux/entities/headphone/selectors";
+import { ReviewForm } from "../review-form/component";
 
-export const Product = ({ id }) => {
-  const product = useSelector((state) => selectHeadphoneById(state, id));
+export const Product = ({ product }) => {
   const [isPromoUsed, setIsPromoUsed] = useState(false);
 
   if (!product) {
     return null;
   }
 
-  const { name, type, price } = product;
+  const { name, type, id } = product;
 
   return (
     <div>
@@ -21,11 +21,7 @@ export const Product = ({ id }) => {
         toggle promo: {isPromoUsed ? "Yes" : "No"}
       </button>
       <span>{name}</span> - <span>{type}</span>
-      <BuyButton
-        productId={id}
-        price={price * (isPromoUsed ? 0.7 : 1)}
-        className={styles.buyButton}
-      />
+      <ReviewForm productId={id} />
     </div>
   );
 };
