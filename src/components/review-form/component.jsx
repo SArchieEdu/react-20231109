@@ -26,8 +26,11 @@ const reducer = (state, action) => {
   }
 };
 
-export const ReviewForm = ({ productId }) => {
-  const [formValue, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
+export const ReviewForm = ({
+  productId,
+  initialFormValue = DEFAULT_FORM_VALUE,
+}) => {
+  const [formValue, dispatch] = useReducer(reducer, initialFormValue);
   const [createReview, result] = useCreateReviewMutation();
 
   console.log(formValue);

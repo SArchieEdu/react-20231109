@@ -2,24 +2,30 @@ import { useState } from "react";
 import { Categories } from "../../components/categories/component";
 import { Products } from "../../components/products/component";
 import { useGetHeadphonesQuery } from "../../redux/services/api";
+import { useSearchParams } from "react-router-dom";
 
 export const ProductsPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState();
-  const { data, isFetching, isLoading, refetch } =
+  const [searchParams] = useSearchParams();
+  const selectedCategory = searchParams.get("selectedCategory");
+  const { data, isLoading, isError, refetch } =
     useGetHeadphonesQuery(undefined);
-
-  console.log(data);
-  console.log("isFetching:", isFetching);
-  console.log("isLoading:", isLoading);
 
   if (isLoading) {
     return "Loading";
   }
 
+  if (isError) {
+    return (
+      <div>
+        Error
+        <button onClick={() => refetch()}>refetch</button>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <button onClick={() => refetch()}>refetch</button>
-      <Categories onCategorySelect={setSelectedCategory} />
+      <Categories />
       {selectedCategory || "Select category"}
       <Products
         products={data?.filter(({ codecs }) =>

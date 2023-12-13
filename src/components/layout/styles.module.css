@@ -1,0 +1,10 @@
+.link {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.active {
+    color: grey;
+    cursor: default;
+}

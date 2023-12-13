@@ -10,6 +10,11 @@ export const api = createApi({
         url: "products",
       }),
     }),
+    getHeadphone: builder.query({
+      query: (productId) => ({
+        url: `product/${productId}`,
+      }),
+    }),
     getCodecs: builder.query({
       query: () => ({
         url: "codecs",
@@ -45,4 +50,5 @@ export const {
   useGetHeadphonesQuery,
   useGetCodecsQuery,
   useCreateReviewMutation,
+  useGetHeadphoneQuery,
 } = api;
